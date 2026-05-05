@@ -132,5 +132,13 @@ def decode_jwt():
         }), 400
 
 
+import os
+
 if __name__ == "__main__":
-    app.run(debug=True)
+    # প্যানেল থেকে পাঠানো ডাইনামিক পোর্ট রিসিভ করা
+    # যদি পোর্ট না পায় তবে ডিফল্ট ৫০০০ এ চলবে (লোকাল টেস্টের জন্য)
+    target_port = int(os.environ.get("PORT", 5000))
+    
+    # অবশ্যই host='0.0.0.0' দিতে হবে যাতে প্যানেল কানেক্ট করতে পারে
+    # প্রোডাকশন বা ক্লাউড মোডে debug=False রাখা ভালো
+    app.run(host='0.0.0.0', port=target_port, debug=False)
