@@ -1,0 +1,3 @@
+versionName=12.0.2
+webpageUrl=https://t.me/SEXTYMODS
+dialogTitle=Telegram Pro v12
